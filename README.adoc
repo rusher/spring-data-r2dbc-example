@@ -1,0 +1,11 @@
+== Spring Data mariadb R2DBC basics
+(adapted from https://github.com/spring-projects/spring-data-examples/tree/master/r2dbc/example)
+
+This projects shows some sample usage of the work-in-progress mariadb R2DBC support for Spring Data.
+
+=== Interesting bits to look at
+
+- `InfrastructureConfiguration` - sets up a R2DBC `ConnectionFactory` based on the R2DBC Mariadb driver, a `DatabaseClient` and a `R2dbcRepositoryFactory` to eventually create a `CustomerRepository`.
+- `CustomerRepository` - a standard Spring Data reactive CRUD repository exposing query methods using manually defined queries
+- `CustomerRepositoryIntegrationTests` - to initialize the database with some setup SQL and the inserting and reading `Customer` instances.
+- `TransactionalService` - uses declarative transaction to apply a transactional boundary to repository operations.
